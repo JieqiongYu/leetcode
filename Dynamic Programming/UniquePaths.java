@@ -1,3 +1,15 @@
+/**
+* A robot is located at the top-left corner of a m x n grid.
+* The robot can only move either down or right at any point in time.
+* The robot is trying to reach the bottom-right corner of the grid.
+*
+* How many possible unique paths are there?
+*
+* Notice
+* m and n will be at most 100.
+*
+* http://www.lintcode.com/en/problem/unique-paths/
+*/
 public class Solution {
   public int uniquePaths(int m, int n) {
     if (m == 0 || n == 0) {
