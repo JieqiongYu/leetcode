@@ -18,21 +18,24 @@ class Solution {
 	public List<List<Integer>> permute(int[] nums) {
 		List<List<Integer>> result = new ArrayList<>();
 		List<Integer> permutation = new ArrayList<>();
-		dfs(nums, 0, result, permutation);
+		Set<Integer> set = new HashSet<>();
+		dfs(nums, set, result, permutation);
 		return result;
 	}
 
-	private void dfs(int[] nums, int startIndex, List<List<Integer>> result, List<Integer> permutation) {
+	private void dfs(int[] nums, Set<Integer> set, List<List<Integer>> result, List<Integer> permutation) {
 		if (permutation.size() == nums.length) {
 			result.add(new ArrayList<Integer>(permutation));
 		}
 
 		for (int i = 0; i < nums.length; i++) {
-			if (permutation.contains(nums[i])) {
+			if (set.contains(nums[i])) {
 				continue;
 			}
 			permutation.add(nums[i]);
-			dfs(nums, i+1, result, permutation);
+			set.add(nums[i]);
+			dfs(nums, set, result, permutation);
+			set.remove(nums[i]);
 			permutation.remove(permutation.size() - 1);
 		}
 	}
