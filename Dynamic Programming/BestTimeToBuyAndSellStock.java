@@ -40,3 +40,8 @@ class Solution {
         return maxProfit;
     }
 }
+/**
+ * Complexity Analysys:
+ *  Time Complexity: O(n). Only a single pass is needed. 
+ *  Space Complexity: O(1). Only two variables are used. 
+ */

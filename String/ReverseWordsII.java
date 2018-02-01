@@ -13,6 +13,18 @@
 *
 * https://leetcode.com/problems/reverse-words-in-a-string-ii/description/
 */
+/**
+ * Solution:
+ * Let us indicate the ith word by wi and its reversal as wi'. 
+ * Notice that when you reverse a word twice, you get back the original word. 
+ * That is, (wi)' = wi.
+ * 
+ * The input string is w1w2...wn. If you reverse the entire string, it becomes 
+ * wn'...w2'w1'. Finally, we reverse each individual word and it becomes 
+ * wn...w2w1. 
+ * Similarly, the same result could be reached by reversing each individual 
+ * word first, and then reverse the entire string. 
+ */
 class Solution {
     public void reverseWords(char[] str) {
         // reverse the whole sentence
@@ -34,3 +46,8 @@ class Solution {
         }
     }
 }
+/**
+ * Complexity Analysis: 
+ *  Time Complexity: O(n).
+ *  Space Complexity: O(1). In-place reverse. 
+ */
