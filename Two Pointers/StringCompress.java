@@ -1,4 +1,6 @@
 /**
+ * [LeetCode][443]String Compression
+ * 
 * Given an array of characters, compress it in-place.
 * The length after compression must always be smaller than or equal to the original array.
 * Every element of the array should be a character (not int) of length 1.
@@ -59,3 +61,8 @@ class Solution {
         return write;
     }
 }
+/**
+ * Complexity Analysis
+ * Time Complexity: O(N), where N is the length of chars.
+ * Space Complexity: O(1), the space used by read, write, and anchor.
+ */
