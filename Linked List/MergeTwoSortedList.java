@@ -1,12 +1,16 @@
 /**
-* Merge two sorted linked lists and return it as a new list.
-* The new list should be made by splicing together the nodes of the first two lists.
-* Example:
-* Input: 1->2->3-4, 1->3-4
-* Outpu: 1->1->2->3->4->4
-* https://leetcode.com/problems/merge-two-sorted-lists/description/
-*/
-
+ * [LeetCode][21]Merge Two Sorted List
+ * 
+ * Merge two sorted linked lists and return it as a new list.
+ * The new list should be made by splicing together the nodes of the first two lists.
+ * 
+ * Example:
+ * Input: 1->2->3-4, 1->3-4
+ * Outpu: 1->1->2->3->4->4
+ * 
+ * https://leetcode.com/problems/merge-two-sorted-lists/description/
+ * 
+ * /
 /**
  * Definition for singly-linked list.
  * public class ListNode {
@@ -20,7 +24,7 @@ class Solution {
         ListNode dummyHead = new ListNode(0);
         ListNode curt = dummyHead;
 
-				// neither l1 and l2 is empty, compare each value from each node
+		// neither l1 and l2 is empty, compare each value from each node
         while (l1 != null && l2 != null) {
             if (l1.val < l2.val) {
                 curt.next = l1;
@@ -32,12 +36,12 @@ class Solution {
             curt = curt.next;
         }
 
-				// when l2 is empty
+		// when l2 is empty
         if (l1 != null) {
             curt.next = l1;
         }
 
-				// when l1 is empty
+		// when l1 is empty
         if (l2 != null) {
             curt.next = l2;
         }
