@@ -50,3 +50,11 @@ class Solution {
         return true;
     }
 }
+/**
+ * Complexity Analysis
+ *      Time Complexity: O(N + P), where N is the maximum length of words1 and words2, 
+ *                      and P is the length of pairs.
+ *      Space Complexity: O(P), the size of pairs. Intermediate objects created in evaluating 
+ *                      whether a pair of words are similar are created one at a time, 
+ *                      so they don’t take additional space. 
+ */
