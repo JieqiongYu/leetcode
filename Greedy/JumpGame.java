@@ -11,20 +11,20 @@
  *  
  * https://leetcode.com/problems/jump-game/description/
  */
-public class Solution {
-    public boolean canJump(int[] A) {
-        // think it as merging n intervals
-        if (A == null || A.length == 0) {
-            reutrn false;
+class Solution {
+    public boolean canJump(int[] nums) {
+        if (nums == null || nums.length == 0) {
+            return false;
         }
-
-        int fartehst = A[0];
-        for (int i = 1; i < A.length; i++) {
-            if (i <= fartehst && A[i] + i >= farthest) {
-                farthest = A[i] + i;
+        
+        int farthest = nums[0];
+        for (int i = 1; i < nums.length; i++) {
+            if (i <= farthest && nums[i] + i > farthest) {
+                farthest = nums[i] + i;
             }
         }
-        return farthest >= A.length - 1;
+        
+        return farthest >= nums.length - 1;
     }
 }
 /**
