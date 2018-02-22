@@ -1,23 +1,19 @@
 /**
-* Given a target number and an integer array A sorted in ascending order,
-* find the index i in A such that A[i] is closest to the given target.
-*
-* Return -1 if there is no element in the array.
-*
-* Notice
-* There can be duplicate elements in the array,
-* and we can return any of the indices with same value.
-* 
-* http://www.lintcode.com/en/problem/closest-number-in-sorted-array/
-*/
+ * [LintCode][459]Closest Number in Sorted Array
+ * 
+ * Given a target number and an integer array A sorted in ascending order,
+ * find the index i in A such that A[i] is closest to the given target.
+ * 
+ * Return -1 if there is no element in the array.
+ * 
+ * Notice
+ * There can be duplicate elements in the array,
+ * and we can return any of the indices with same value.
+ * 
+ * http://www.lintcode.com/en/problem/closest-number-in-sorted-array/
+ */
 public class Solution {
-    /*
-     * @param A: an integer array sorted in ascending order
-     * @param target: An integer
-     * @return: an integer
-     */
     public int closestNumber(int[] A, int target) {
-        // write your code here
         if (A == null || A.length == 0) {
             return -1;
         }
