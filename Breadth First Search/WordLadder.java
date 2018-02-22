@@ -1,4 +1,7 @@
 /**
+* 
+* [LeetCode][127]Word Ladder
+*
 * Given two words (start and end), and a dictionary,
 * find the length of shortest transformation sequence from start to end,
 * such that:
@@ -20,42 +23,33 @@
 * 
 * http://www.lintcode.com/en/problem/word-ladder/
 */
-public class Solution {
-    /*
-     * @param start: a string
-     * @param end: a string
-     * @param dict: a set of string
-     * @return: An integer
-     */
-    public int ladderLength(String start, String end, Set<String> dict) {
-        // write your code here
-        if (dict == null || dict.size() == 0) {
+class Solution {
+    public int ladderLength(String beginWord, String endWord, List<String> wordList) {
+        if (wordList == null || wordList.size() == 0) {
             return 0;
         }
-
-        if (start.equals(end)) {
-            return 1;
+        
+        Set<String> wordSet = new HashSet<>();
+        for (String word : wordList) {
+            wordSet.add(word);
         }
-
-        dict.add(start);
-        dict.add(end);
-
+        
         Queue<String> queue = new LinkedList<>();
         Set<String> set = new HashSet<>();
-        queue.offer(start);
-        set.add(start);
-
+        queue.offer(beginWord);
+        set.add(beginWord);
+        
         int length = 1;
         while (!queue.isEmpty()) {
             length++;
             int size = queue.size();
             for (int i = 0; i < size; i++) {
                 String word = queue.poll();
-                for (String nextWord : getNextWords(word, dict)) {
+                for (String nextWord : getNextWords(word, wordSet)) {
                     if (set.contains(nextWord)) {
                         continue;
                     }
-                    if (end.equals(nextWord)) {
+                    if (endWord.equals(nextWord)) {
                         return length;
                     }
                     queue.offer(nextWord);
@@ -63,27 +57,23 @@ public class Solution {
                 }
             }
         }
-
+        
         return 0;
     }
-
-    private List<String> getNextWords(String word, Set<String> dict) {
+    
+    private List<String> getNextWords(String word, Set<String> wordSet) {
         List<String> nextWords = new ArrayList<>();
         for (char c = 'a'; c <= 'z'; c++) {
             for (int i = 0; i < word.length(); i++) {
-                if (c == word.charAt(i)) {
-                    continue;
-                }
                 String nextWord = replace(word, i, c);
-                if (dict.contains(nextWord)) {
+                if (wordSet.contains(nextWord)) {
                     nextWords.add(nextWord);
                 }
             }
         }
-
         return nextWords;
     }
-
+    
     private String replace(String word, int index, char c) {
         char[] wordChar = word.toCharArray();
         wordChar[index] = c;
