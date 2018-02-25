@@ -1,15 +1,17 @@
 /**
-* Given a singly linked list, determine if it is a palindrome.
-*
-* Follow up:
-* Could you do it in O(n) time and O(1) space?
-*
-* https://leetcode.com/problems/palindrome-linked-list/description/
-*/
+ * [LeetCode][234]Palindrome Linked List
+ * 
+ * Given a singly linked list, determine if it is a palindrome.
+ * 
+ * Follow up:
+ * Could you do it in O(n) time and O(1) space?
+ * 
+ * https://leetcode.com/problems/palindrome-linked-list/description/
+ */
 /**
-* This can be solved by reversing the 2nd half and compare the two halves.
-* (1) Find (2) Reverse (3) Compare
-*/
+ * This can be solved by reversing the 2nd half and compare the two halves.
+ * (1) Find (2) Reverse (3) Compare
+ */
 /**
  * Definition for singly-linked list.
  * public class ListNode {
@@ -74,3 +76,7 @@ public class Solution {
         return prev;
     }
 }
+/**
+ * Time Complexity: O(n)
+ * Space Complexity: O(1)
+ */
