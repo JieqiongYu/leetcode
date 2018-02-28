@@ -1,5 +1,4 @@
 /**
-* 
 * [LeetCode][127]Word Ladder
 *
 * Given two words (start and end), and a dictionary,
