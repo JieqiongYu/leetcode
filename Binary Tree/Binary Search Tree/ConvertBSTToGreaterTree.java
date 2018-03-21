@@ -1,22 +1,23 @@
 /**
-* Given a Binary Search Tree (BST), convert it to a Greater Tree such that every key of the
-* original BST is changed to the original key plus sum of all keys greater
-* than the original key in BST.
-*
-* Example:
-*
-* Input: The root of a Binary Search Tree like this:
-*               5
-*             /   \
-*           2     13
-*
-* Output: The root of a Greater Tree like this:
-*              18
-*             /   \
-*           20     13
-*
-* https://leetcode.com/problems/convert-bst-to-greater-tree/description/
-*/
+ *
+ * Given a Binary Search Tree (BST), convert it to a Greater Tree such that every key of the
+ * original BST is changed to the original key plus sum of all keys greater
+ * than the original key in BST.
+ *
+ * Example:
+ * 
+ * Input: The root of a Binary Search Tree like this:
+ *               5
+ *             /   \
+ *           2     13
+ * 
+ * Output: The root of a Greater Tree like this:
+ *              18
+ *             /   \
+ *            20     13
+ * 
+ * https://leetcode.com/problems/convert-bst-to-greater-tree/description/
+ */
 /**
 * 仔细观察题目中的例子可以发现，2变成了20，而20是所有结点之和，因为2是最小结点值，
 * 要加上其他所有结点值，所以肯定就是所有结点值之和。5变成了18，是通过20减去2得来的，
