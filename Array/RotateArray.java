@@ -1,4 +1,6 @@
 /**
+ * [LeetCode][189] Rotate Array.
+ * 
  * Rotate an array of n elements to the right by k steps.
  * 
  * For example, with n = 7 and k = 3, the array [1,2,3,4,5,6,7] 
@@ -13,6 +15,14 @@
  * Related problem: Reverse Words in a String II
  * 
  * https://leetcode.com/problems/rotate-array/description/
+ */
+/**
+ * Solution:
+ * As in Example:
+ * Original List: [1,2,3,4,5,6,7]
+ * Reverse all: [7,6,5,4,3,2,1]
+ * Reverse first k: [5,6,7,4,3,2,1]
+ * Reverse last n-k: [5,6,7,1,2,3,4] --> Result
  */
 class Solution {
     public void rotate(int[] nums, int k) {
