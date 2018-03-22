@@ -121,3 +121,10 @@ public class Solution {
         return arr.length;
     }
 }
+
+/**
+ * Complexity: 
+ *      Time Complexity: O(log(n) + k). O(log(n)) is for the time of binary search, while O(k) is for 
+ *                      shrinking the index range to k elements. 
+ *      Space Complexity: O(k). It is to generate the required sublist. 
+ */
