@@ -34,33 +34,42 @@
 class Solution {
     public List<Integer> findAnagrams(String s, String p) {
         List<Integer> result = new ArrayList<>();
-        int[] map = new int[26];
-        
-        for (char c : p.toCharArray()) {
-            map[c-'a']++;
+        if (p.length() > s.length()) {
+            return result;
         }
         
-        int left = 0;
-        int right = 0;
-        int count = 0;
-        int sLen = s.length();
-        int pLen = p.length();
+        Map<Character, Integer> map = new HashMap<>();
+        for (char c : p.toCharArray()) {
+            map.put(c, map.getOrDefault(c, 0) + 1);
+        }
         
-        while (right < sLen) {
-            if (map[s.charAt(right)-'a'] >= 1) {
-                count++;
-            }
-            map[s.charAt(right)-'a']--;
-            right++;
-            if (count == pLen) {
-                result.add(left);
-            }
-            if (right - left == pLen) {
-                if (map[s.charAt(left)-'a'] >= 0) {
-                    count--;
+        int start = 0, end = 0;
+        int counter = map.size();
+        
+        while (end < s.length()) {
+            char c = s.charAt(end);
+            if (map.containsKey(c)) {
+                map.put(c, map.get(c) - 1);
+                if (map.get(c) == 0) {
+                    counter--;
                 }
-                map[s.charAt(left)-'a']++;
-                left++;
+            }
+            end++;
+            
+            while (counter == 0) {
+                char tempc = s.charAt(start);
+                if (map.containsKey(tempc)) {
+                    map.put(tempc, map.get(tempc) + 1);
+                    if (map.get(tempc) > 0) {
+                        counter++;
+                    }
+                }
+                
+                if (end - start == p.length()) {
+                    result.add(start);
+                }
+                
+                start++;
             }
         }
         
