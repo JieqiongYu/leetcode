@@ -11,7 +11,7 @@ public class Codec {
     public String getRand() {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < 6; i++) {
-            sb.append(alphabet.charAt(random.nextInt(62)));
+            sb.append(alphabet.charAt(random.nextInt(alphabet.length())));
         }
         return sb.toString();
     }
