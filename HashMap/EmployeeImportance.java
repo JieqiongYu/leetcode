@@ -64,3 +64,8 @@ class Solution {
         return importance;
     }
 }
+/**
+Complexity Analysis:
+Time Complexity: O(N), where N is the number of employees. We might query each employee in dfs.
+Space Complexity: O(N), the size of the implicit call stack when evaluatin dfs. 
+ */
