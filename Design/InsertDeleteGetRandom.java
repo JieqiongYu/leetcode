@@ -36,47 +36,40 @@
  * 
  * https://leetcode.com/problems/insert-delete-getrandom-o1/description/
  */
-class RandomizedSet {
+ class RandomizedSet {
     
-    Map<Integer, Integer> map;
-    List<Integer> list;
+    Set<Integer> set;
 
     /** Initialize your data structure here. */
     public RandomizedSet() {
-        map = new HashMap<>();
-        list = new ArrayList<>();
+        set = new HashSet<>();
     }
     
     /** Inserts a value to the set. Returns true if the set did not already contain the specified element. */
     public boolean insert(int val) {
-        if (map.containsKey(val)) {
+        if (set.contains(val)) {
             return false;
-        } else {
-            map.put(val, list.size());
-            list.add(val);
+        } else{
+            set.add(val);
             return true;
         }
     }
     
     /** Removes a value from the set. Returns true if the set contained the specified element. */
     public boolean remove(int val) {
-        if (!map.containsKey(val)) {
-            return false;
-        } else {
-            int valLocation = map.get(val);
-            int lastVal = list.get(list.size() - 1);
-            map.put(lastVal, valLocation);
-            list.set(valLocation, lastVal);
-            map.remove(val);
-            list.remove(list.size() - 1);
+        if (set.contains(val)) {
+            set.remove(val);
             return true;
+        } else {
+            return false;
         }
     }
     
     /** Get a random element from the set. */
     public int getRandom() {
         Random random = new Random();
-        return list.get(random.nextInt(list.size()));
+        List<Integer> list = new ArrayList<>(set);
+        return list.get(random.nextInt(set.size()));
     }
 }
 
