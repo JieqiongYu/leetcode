@@ -1,4 +1,6 @@
 /**
+ * [LeetCode 77] Combinations
+ * 
  * Given two integers n and k, return all possible combinations of k numbers 
  * out of 1 ... n.
  * 
@@ -14,28 +16,33 @@
  *   [1,4],
  * ]
  * 
- * http://www.jiuzhang.com/solution/combinations/
+ * https://leetcode.com/problems/combinations/description/
  */
 class Solution {
     public List<List<Integer>> combine(int n, int k) {
-        List<List<Integer>> result = new ArrayList<>();
-        List<Integer> solution = new ArrayList<>();
         
-        dfs(result, solution, n, k, 1);
+        List<List<Integer>> result = new ArrayList<>();
+        List<Integer> combination = new ArrayList<>();
+        
+        dfs(result, combination, n, k, 1);
+        
         return result;
     }
     
-    private void dfs(List<List<Integer>> result, List<Integer> solution, int n, int k, int start) {
-        if (solution.size() == k) {
-            result.add(new ArrayList<Integer>(solution));
-            return;
+    private void dfs(List<List<Integer>> result, List<Integer> combination, int n, int k, int start) {
+        if (combination.size() == k) {
+            result.add(new ArrayList<Integer>(combination));
         }
         
         for (int i = start; i <= n; i++) {
-            solution.add(i);
-            
-            dfs(result, solution, n, k, i+1);
-            solution.remove(solution.size() - 1);
+            combination.add(i);
+            dfs(result, combination, n, k, i+1);
+            combination.remove(combination.size() - 1);
         }
     }
 }
+
+/**
+ * Time Complexity: O(n!)
+ * Space Complexity: O(n)
+ */
